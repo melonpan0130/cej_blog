@@ -42,16 +42,19 @@ h1, h2, h3, h4, h5, h6, p {
 
 #NavigationComponent a {
   margin: 5px;
+  color: hsla(160, 100%, 37%, 1);
+}
+
+@media (hover: hover) {
+  #NavigationComponent a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
 }
 
 a {
   text-decoration: none;
   transition: 0.4s;
   padding: 3px;
-}
-
-a:not(#HeaderComponent a){
-  color: hsla(160, 100%, 37%, 1);
 }
 
 #FooterComponent {
@@ -66,13 +69,6 @@ a:not(#HeaderComponent a){
     color: rgba(235, 235, 235, 0.64);
   }
 }
-
-@media (hover: hover) {
-  a:not(#HeaderComponent a):hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
 
 @media (max-width: 375px) {
 
