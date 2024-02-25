@@ -3,9 +3,9 @@ import axios from 'axios';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const fileName = route.params.fileName.toString();
+const fileName:string[] = route.params.fileName as string[];
 
-axios.get(`/posts/${fileName}`)
+axios.get(`/posts/${fileName.join('/')}`)
   .then((res)=> {
     // Set content
     document.getElementById('PostComponent')!.innerHTML = res.data;

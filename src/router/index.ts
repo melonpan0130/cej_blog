@@ -11,9 +11,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/post/:fileName',
+      path: '/post/:fileName+',
       name: 'post',
       component: PostView
+    },
+    {
+      path: '/board/:category+',
+      name: 'board',
+      component: HomeView
     },
     {
       path: '/about',
