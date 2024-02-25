@@ -1,38 +1,27 @@
 <script lang="ts">
-import axios from 'axios';
 import { RouterLink } from 'vue-router';
 
 export default {
   data () {
+    const postsProp:any = this.$posts;
+    
     return {
-      loading: true,
-      posts: []
+      posts: postsProp.posts
     }
-  },
-  mounted() {
-    axios.get('posts.json')
-      .then((res)=>{
-        this.loading = false;
-        this.posts = res.data;
-      })
-      .catch(err=>console.log(err));
   }
 };
 </script>
 
 <template>
   <div id="BoardComponent">
-    <div v-if="loading">...</div>
-    <div v-else>
-      <div v-for="(post, index) in posts" >
-        <RouterLink class="boardItem" :to="'post/'+post['fileName']">
-          <h2 class="title">
-            {{ `${String(index+1).padStart(posts.length.toString().length, '0')}_${post['title']}.log` }}
-          </h2>
-          <p class="date">{{ post['date'] }}</p>
-          <p class="category">{{ `/${post['category']}` }}</p>
-        </RouterLink>
-      </div>
+    <div v-for="(post, index) in posts" >
+      <RouterLink class="boardItem" :to="'post/'+post['fileName']">
+        <h2 class="title">
+          {{ `${String(index+1).padStart(posts.length.toString().length, '0')}_${post['title']}.log` }}
+        </h2>
+        <p class="date">{{ post['date'] }}</p>
+        <p class="category">{{ `/${post['category']}` }}</p>
+      </RouterLink>
     </div>
   </div>
 </template>
