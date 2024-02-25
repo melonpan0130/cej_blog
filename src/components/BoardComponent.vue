@@ -26,7 +26,9 @@ export default {
     <div v-else>
       <div v-for="(post, index) in posts" class="boardItem">
         <RouterLink :to="'post/'+post['fileName']" >
-          <h2 class="title">{{ `${index+1}. ${post['title']}` }}</h2>
+          <h2 class="title">
+            {{ `${String(index+1).padStart(posts.length.toString().length, '0')}_${post['title']}.log` }}
+          </h2>
           <p class="date">{{ post['date'] }}</p>
           <p class="category">{{ `/${post['category']}` }}</p>
         </RouterLink>
@@ -37,7 +39,6 @@ export default {
 
 <style>
 #BoardComponent .boardItem {
-  /* color: rgb(44, 62, 80); */
   margin: 10px 0;
   padding: 1em;
   transition: 0.4s;

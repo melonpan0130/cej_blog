@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import axios from 'axios';
+import { useRoute } from 'vue-router';
 
-axios.get('test.html')
-  .then(res=>console.log(res.data))
+const route = useRoute();
+const fileName = route.params.fileName.toString();
+
+axios.get(`/posts/${fileName}`)
+  .then((res)=> {
+    document.getElementById('PostComponent')!.innerHTML = res.data;
+  })
   .catch(err=>console.log(err));
 </script>
 
 <template>
-  <div id="PostComponent">
-    PostComponent
-  </div>
+  <div id="PostComponent"></div>
 </template>
