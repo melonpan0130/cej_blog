@@ -24,8 +24,8 @@ export default {
   <div id="BoardComponent">
     <div v-if="loading">...</div>
     <div v-else>
-      <div v-for="(post, index) in posts" class="boardItem">
-        <RouterLink :to="'post/'+post['fileName']" >
+      <div v-for="(post, index) in posts" >
+        <RouterLink class="boardItem" :to="'post/'+post['fileName']">
           <h2 class="title">
             {{ `${String(index+1).padStart(posts.length.toString().length, '0')}_${post['title']}.log` }}
           </h2>
@@ -40,8 +40,9 @@ export default {
 <style>
 #BoardComponent .boardItem {
   margin: 10px 0;
-  padding: 1em;
   transition: 0.4s;
+  padding: 1em;
+  display: block;
 }
 
 #BoardComponent .boardItem:hover {
@@ -51,7 +52,10 @@ export default {
 #BoardComponent .boardItem * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 #BoardComponent .boardItem .title {
