@@ -5,12 +5,12 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const fileName:string[] = route.params.fileName as string[];
 
-axios.get(`/posts/${fileName.join('/')}`)
+axios.get(`/posts/${fileName.join('/')}.html`)
   .then((res)=> {
     // Set content
     document.getElementById('PostComponent')!.innerHTML = res.data;
 
-    // Set giscus
+    // Set Giscus
     const giscus = document.createElement('script');
     giscus.src ='https://giscus.app/client.js';
     giscus.async = true;
