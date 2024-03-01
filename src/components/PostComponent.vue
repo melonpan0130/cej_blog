@@ -5,11 +5,6 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const fileName:string[] = route.params.fileName as string[];
 
-const link = document.createElement('link');
-link.rel = 'canonical';
-link.href = `https://cej13log.netlify.app/post/${fileName.join('/')}`;
-document.head.appendChild(link);
-
 axios.get(`/posts/${fileName.join('/')}.html`)
   .then((res)=> {
     // Set content
