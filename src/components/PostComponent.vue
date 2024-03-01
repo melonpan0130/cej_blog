@@ -10,24 +10,29 @@ axios.get(`/posts/${fileName.join('/')}`)
     // Set content
     document.getElementById('PostComponent')!.innerHTML = res.data;
 
-    // Set Utterances
-    const utterances = document.createElement('script');
-    utterances.type = 'text/javascript';
-    utterances.async = true;
-    utterances.src = 'https://utteranc.es/client.js';
-    utterances.setAttribute('crossorigin', 'anonymous')
-    utterances.setAttribute('issue-term', 'pathname');
-    utterances.setAttribute('theme', 'github-light');
-    utterances.setAttribute('repo', 'melonpan0130/cej_blog');
-    document.getElementById('utterances')!.appendChild(utterances);
+    // Set giscus
+    const giscus = document.createElement('script');
+    giscus.src ='https://giscus.app/client.js';
+    giscus.async = true;
+    giscus.setAttribute('data-repo', 'melonpan0130/cej_blog');
+    giscus.setAttribute('data-repo-id', 'R_kgDOLXW8iQ');
+    giscus.setAttribute('data-category-id', 'DIC_kwDOLXW8ic4CdpHp');
+    giscus.setAttribute('data-mapping', 'pathname');
+    giscus.setAttribute('data-strict', '0');
+    giscus.setAttribute('data-reactions-enabled', '1');
+    giscus.setAttribute('data-emit-metadata', '0');
+    giscus.setAttribute('data-input-position', 'bottom');
+    giscus.setAttribute('data-theme', 'preferred_color_scheme');
+    giscus.setAttribute('data-lang', 'ko');
+    giscus.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('giscus')?.appendChild(giscus);
   })
   .catch(err=>console.log(err));
 </script>
 
-
 <template>
   <div id="PostComponent"></div>
-  <div id="utterances"></div>
+  <div id="giscus"></div>
 </template>
 
 <style>
