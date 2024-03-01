@@ -39,14 +39,16 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0 1rem;
   font-size: 20px;
 }
-
 #NavigationComponent a {
   margin: 5px;
+}
+
+a {
   color: hsla(160, 100%, 37%, 1);
 }
 
 @media (hover: hover) {
-  #NavigationComponent a:hover {
+  a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }

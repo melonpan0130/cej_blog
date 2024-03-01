@@ -37,15 +37,16 @@ export default {
 <template>
   <nav id="NavigationComponent">
     <RouterLink to="/">Home</RouterLink>
-    <div v-for="(value, key) in naviBarMap" class="navigationItem">
+    <div v-for="(value, key) in naviBarMap" :key="key" class="navigationItem">
       <RouterLink v-if="Object.keys(value).length === 0" :to="'/board/'+key">{{ key }}</RouterLink>
       <div v-else class="dropdown">
         <a>{{ key }}</a>
         <div class="dropped">
           <RouterLink
             v-for="(dropValue, dropKey) in value"
-            class="droppedItem"
-            :to="'/board/'+key+'/'+dropKey">
+            :key="dropKey"
+            :to="'/board/'+key+'/'+dropKey"
+            class="droppedItem">
               {{ dropKey }}
           </RouterLink>
         </div>
