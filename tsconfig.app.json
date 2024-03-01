@@ -7,7 +7,6 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
     "baseUrl": ".",
-    "url": "https://cej13log.netlify.app/",
     "paths": {
       "@/*": ["./src/*"]
     }
