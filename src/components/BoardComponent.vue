@@ -16,7 +16,10 @@ export default {
 
     const category:string[] = route.params.category as string[];
     const postsProp:any = this.$posts;
-    const result:any[] = this.reload(category, postsProp);
+    const result:any[] = this.reload(category, postsProp)
+      .sort((a:any, b:any) => {
+      return a['date'] > b['date'] ? -1 : 1;
+    });
     
     return {
       posts: result
@@ -37,7 +40,7 @@ export default {
 
 <template>
   <div id="BoardComponent">
-    <div v-for="(post, index) in posts" >
+    <div v-for="(post, index) in posts" :key="index">
       <RouterLink class="boardItem" :to="'/post/'+post['category']+'/'+post['fileName']">
         <h2 class="title">
           {{ `${String(index+1).padStart(posts.length.toString().length, '0')}_${post['title']}.log` }}
