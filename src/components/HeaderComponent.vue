@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router';
       <a href="https://github.com/melonpan0130">Github</a>
     </div>
     <RouterLink to="/">
-      <p>😎 내가 공부하려고 만든 블로그</p>
+      <p>😎 A blog I made for studying</p>
     </RouterLink>
   </div>
 </template>

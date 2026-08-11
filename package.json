@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-posts.js",
+    "prebuild": "node scripts/generate-posts.js",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
@@ -13,6 +15,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@unhead/vue": "^2.1.9",
     "axios": "^1.6.7",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
