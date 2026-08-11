@@ -1,50 +1,73 @@
 @import './base.css';
 
-h1, h2, h3, h4, h5, h6, p {
-  color: rgb(44, 62, 80);
-}
-
+/* Main Component Styles */
 #app,
 #MainComponent {
   width: 100%;
   height: 100vh;
   font-weight: normal;
 }
-
 #MainComponent {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
 }
-
 #MainComponent .content {
   flex-grow: 1;
+  padding: 16px;
 }
-
 #MainComponent .content>div {
   padding: 2rem 1rem;
 }
 
+/* Header Component Styles */
 #HeaderComponent {
   padding: 2rem 1rem;
   padding-bottom: 1rem;
 }
-
-#HeaderComponent p {
+#HeaderComponent .logo {
+  background-image: linear-gradient(
+    to top, 
+    rgba(44, 186, 146, 0.35) 0%, 
+    rgba(44, 186, 146, 0.35) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 4px;
+  transition: background-size 0.25s ease-in-out;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+#HeaderComponent .logo:hover {
+  background-color: unset;
+  background-size: 100% 100%;
+}
+#HeaderComponent .logo p {
   font-weight: bold;
   font-size: 30px;
+  display: inline-block;
 }
 
+#HeaderComponent .about {
+  display: flex;
+}
+#HeaderComponent .about a {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
+
+/* Navigation Component Styles */
 #NavigationComponent {
   padding: 0 1rem;
   font-size: 20px;
 }
 #NavigationComponent a {
-  margin: 5px;
+  margin: 1em;
 }
-
-a {
-  color: hsla(160, 100%, 37%, 1);
+#NavigationComponent a:first-child {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 @media (hover: hover) {
@@ -54,6 +77,7 @@ a {
 }
 
 a {
+  color: hsla(160, 100%, 37%, 1);
   text-decoration: none;
   transition: 0.4s;
   padding: 3px;

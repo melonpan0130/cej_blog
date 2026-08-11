@@ -1,53 +1,25 @@
-<script lang="ts">
-import { RouterLink } from 'vue-router';
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import { getNaviBarMap } from '@/utils/posts'
 
-export default {
-  data () {
-    const postsProp:any = this.$posts;
-    const postList:any[] = postsProp.posts;
-    const categoryList:string[] = postList.flatMap((post)=> post['category']);
-    const categoryMap:any = [...new Set(categoryList)]
-      .sort()
-      .map((category)=> category.split('/'));
-    
-    return {
-      posts: postsProp.posts,
-      naviBarMap: this.setNaviBarMap(categoryMap)
-    }
-  },
-  methods: {
-    setNaviBarMap(categoryMap:any) {
-      const obj:any = {};
-
-      categoryMap.forEach((element:any) => {
-        let currentLevel:any = obj;
-        element.forEach((value:any) => {
-          if (!currentLevel[value]) {
-            currentLevel[value] = {};
-          }
-          currentLevel = currentLevel[value];
-        });
-      });
-      return obj;
-    }
-  }
-};
+const naviBarMap = getNaviBarMap()
 </script>
 
 <template>
   <nav id="NavigationComponent">
     <RouterLink to="/">Home</RouterLink>
     <div v-for="(value, key) in naviBarMap" :key="key" class="navigationItem">
-      <RouterLink v-if="Object.keys(value).length === 0" :to="'/board/'+key">{{ key }}</RouterLink>
+      <RouterLink v-if="Object.keys(value).length === 0" :to="'/board/' + key">{{ key }}</RouterLink>
       <div v-else class="dropdown">
         <a>{{ key }}</a>
         <div class="dropped">
           <RouterLink
             v-for="(dropValue, dropKey) in value"
             :key="dropKey"
-            :to="'/board/'+key+'/'+dropKey"
-            class="droppedItem">
-              {{ dropKey }}
+            :to="'/board/' + key + '/' + dropKey"
+            class="droppedItem"
+          >
+            {{ dropKey }}
           </RouterLink>
         </div>
       </div>
@@ -76,7 +48,5 @@ export default {
 .dropdown:hover .dropped,
 .dropped:hover {
   display: block;
-
 }
-
 </style>
