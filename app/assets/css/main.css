@@ -1,0 +1,129 @@
+@import './base.css';
+
+h1, h2, h3, h4, h5, h6, p {
+  color: rgb(44, 62, 80);
+}
+
+/* Main Component Styles */
+#app,
+#MainComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-weight: normal;
+}
+
+#MainComponent {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+#MainComponent .content {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+/* Header Component Styles */
+#HeaderComponent {
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+}
+
+#HeaderComponent .logo {
+  display: inline-block;
+  background-image: linear-gradient(
+    to top, 
+    rgba(44, 186, 146, 0.35) 0%, 
+    rgba(44, 186, 146, 0.35) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 4px;
+  transition: background-size 0.25s ease-in-out;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+#HeaderComponent .logo:hover {
+  background-color: unset;
+  background-size: 100% 55%;
+}
+
+#HeaderComponent .logo:not(:active):not(:focus):not(:hover) {
+  background-size: 100% 4px;
+}
+
+#HeaderComponent .logo p {
+  font-weight: bold;
+  font-size: 30px;
+  display: inline-block;
+}
+
+
+#HeaderComponent .about {
+  display: flex;
+}
+
+#HeaderComponent .about a {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
+
+/* Navigation Component Styles */
+#NavigationComponent {
+  padding: 0 1rem;
+  font-size: 20px;
+}
+
+#NavigationComponent a {
+  margin: 5px;
+}
+
+#NavigationComponent a:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Footer Component Styles */
+#FooterComponent {
+  border-top: solid 1px #aeaeae;
+  color: #aeaeae;
+  padding: 2rem 1rem;
+}
+
+a {
+  color: hsla(160, 100%, 37%, 1);
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6, p {
+    color: rgba(235, 235, 235, 0.64);
+  }
+}
+
+@media (max-width: 375px) {
+  #HeaderComponent .logo p {
+    font-size: 22px;
+  }
+
+  #NavigationComponent {
+    margin: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  #MainComponent {
+    width: 900px;
+    margin: 0 auto;
+  }
+}
