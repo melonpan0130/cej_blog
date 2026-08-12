@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://cej13log.netlify.app/sitemap.xml
