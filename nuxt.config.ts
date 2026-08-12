@@ -17,5 +17,5 @@ export default defineNuxtConfig({
     description: 'A blog site for sharing knowledge and experiences.'
   },
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  devtools: { enabled: import.meta.dev }
 })
