@@ -3,6 +3,9 @@ title: "SI기업은 왜 AI플랫폼을 만들까? (feat. 양상추와 햄버거)
 date: "2026-11-05"
 ---
 <style>
+* {
+  word-break: keep-all;
+}
 b {
   font-weight: bolder;
 }
@@ -18,6 +21,12 @@ hr {
   text-decoration: line-through;
 }
 .term {
+  border: solid 5px rgba(0, 189, 126, 0.2);
+  font-size: 0.9em;
+  margin: 1em;
+  opacity: 0.5;
+}
+.highlight {
   
 }
 table {
@@ -156,7 +165,7 @@ table tr:nth-child(1) th {
     </ul>
   </li>
 </ul>
-<b>⇒ 그러니까 로컬 LLM은 양상추고, 뮤뮤는 양상추를 포함해 이것저것 기능을 포함한 햄버거였다.</b>
+<p>⇒ <span class="highlight">그러니까 로컬 LLM은 <b>양상추</b>고, 뮤뮤는 양상추를 포함해 이것저것 기능(RAG 엔진, UI, 권한 관리, 감사 로그 등)을 포함한 <b>햄버거</b>였다.</span></p>
 <br>
 <p>그리고, 뮤뮤는 다양한 오픈소서 로컬 LLM을 선택하여 적용할 수 있는 형태였다.</p>
 <p>예시)</p>
