@@ -17,8 +17,22 @@ hr {
   font-style: italic;
   text-decoration: line-through;
 }
-.comment {
+.term {
   
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table th,
+table td {
+    border: solid 2px rgba(0, 189, 126, 0.2);
+    padding: 0.1em 0.5em;
+}
+table tr:nth-child(1) td,
+table tr:nth-child(1) th {
+    text-align: center;
+    background-color: rgba(0, 189, 126, 0.2);
 }
 </style>
 <p>최근 AX부서로 이전하면서 처음으로 사내 AI시스템을 공부하게 되었다.</p>
@@ -44,6 +58,16 @@ hr {
     <p>기업 내부의 표준 코딩 가이드라인, 기존 소스 코드 라이브러리, 개발 문서 등과 연계하여 작동</p>
   </li>
 </ol>
+<ul class="term">
+  <li>
+    <b>sLLM (small Large Language Mode, 소형 언어 모델):</b>
+    <p> LLM(대형 언어 모델)을 기반으로 특정 작업이나 영역에 특화된 파인튜닝(fine-tuned) 모델</p>
+  </li>
+  <li>
+    <b>RAG (Retrieval-Argumented Generation, 검색 증강 생성):</b>
+    <p> 인공지능이 외부 문서나 데이터베이스에 관련 정보를 먼저 찾아온 뒤(검색/Retrieval), 그 내용을 바탕으로 정확한 답변을 생성하는 AI 아키텍쳐</p>
+  </li>
+</ul>
 <br/>
 <p>여기서 나는 1번과 2번의 효용성에 의문을 가졌다. <span class="think">이거 이미 시중에 나와있는 기능 아닌가?</span></p>
 <p>경험상, 로컬 LLM도 개인 PC를 AI서버로서 활용할 수 있다는 것을 알고 있었기에, 폐쇄성에 대한 메리트가 있는 것인지 조금 납득하기 어려웠다.</p>
@@ -55,16 +79,16 @@ hr {
     <b>로컬 LLM (Local LLM):</b>
     <ul>
       <li><b>정의:</b> Llama, Mistral, Gemma 등 오픈소스 모델의 가중치(Weights)를 다운로드하여 사용자 자신의 PC나 서버(온프레미스)에서 직접 추론(Inference)을 수행하는 것을 말한다.</li>
-      <li><b>성격:</b> 이는 하나의 <b>엔진(Engine)</b> 또는 <b>컴포넌트(Component)</b>에 불과</li>
-      <li><b>한계:</b> 모델 파일만으로는 사용자의 질문에 대한 정확한 내부 지식 기반 답변을 생성하지 못한다. 별도의 프롬프트 엔지니어링이나 외부 데이터 연동 로직이 없으면 일반 상식 수준의 답변만 제공한다.</li>
+      <li><b>성격:</b> 이는 하나의 <b>엔진(Engine)</b> 또는 <b>컴포넌트(Component)</b>에 불과하다.</li>
+      <li><b>한계:</b> 모델 파일만으로는 사용자의 질문에 대한 정확한 내부 지식 기반 답변을 생성하지 못한다. 따라서, 별도의 프롬프트 엔지니어링이나 외부 데이터 연동 로직이 없으면 일반 상식 수준의 답변만 제공할 수 있다.</li>
     </ul>
   </li>
   <li>
     <b>뮤뮤:</b>
     <ul>
       <li><b>정의:</b> 로컬 LLM(또는 클라우드 LLM)을 백엔드로 활용하되, 기업의 비공개 데이터를 안전하게 처리하고 검색하며, 업무 프로세스에 맞게 정제된 답변을 생성하는 <b>통합형 AI 플랫폼</b>입니다.</li>
-      <li><b>성격:</b> 이는 <b>솔루션(Solution)</b> 또는 <b>플랫폼(Platform)</b>입니다.</li>
-      <li><b>특징:</b> LLM을 '두뇌'로 삼되, 기억력(벡터 DB), 감각(검색 엔진), 행동 규칙(세이프가드)을 갖춘 완성된 시스템입니다.</li>
+      <li><b>성격:</b> 이는 <b>솔루션(Solution)</b> 또는 <b>플랫폼(Platform)</b>이다.</li>
+      <li><b>특징:</b> LLM을 '두뇌'로 삼되, 기억력(벡터 DB), 감각(검색 엔진), 행동 규칙(세이프가드)을 갖춘 완성된 시스템이다.</li>
     </ul>
   </li>
 </ul>
@@ -132,8 +156,10 @@ hr {
     </ul>
   </li>
 </ul>
-<p>⇒ 그러니까 로컬 LLM은 양상추고, 뮤뮤는 양상추를 포함해 이것저것 기능을 포함한 햄버거였다.</p>
-<p>그리고 뮤뮤는 다양한 오픈소서 로컬 LLM을 선택하여 적용할 수 있는 형태였다.</p>
+<b>⇒ 그러니까 로컬 LLM은 양상추고, 뮤뮤는 양상추를 포함해 이것저것 기능을 포함한 햄버거였다.</b>
+<br>
+<p>그리고, 뮤뮤는 다양한 오픈소서 로컬 LLM을 선택하여 적용할 수 있는 형태였다.</p>
+<p>예시)</p>
 <ul>
   <li>Llama 계열(Meta)</li>
   <li>Mistral(Mistral AI)</li>
