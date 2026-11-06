@@ -135,6 +135,10 @@ a {
 b {
   font-weight: bolder;
 }
+i {
+  color: silver;
+  font-weight: bolder;
+}
 hr {
   height: 8px;
   margin: 20px 0;
