@@ -7,7 +7,10 @@ date: "2026-11-06"
 <h3>1.  LLM 모델 파일이란 무엇인가?</h3>
 <ul>
   <li><b>수조(조 단위) 개의 숫자(파라미터/Weights)가 저장된 거대한 데이터 파일</b></li>
-  <li>파일 확장자: .bin, .safetensors, .gguf (양자화 버전) 등</li>
+  <li>
+    <p>파일 확장자: .bin, .safetensors, .gguf (양자화 버전) 등</p>
+    <ul><li>양자화(Quantization) 기법을 적용하면 14GB짜리 7B 모델을 4GB 수준으로 압축해서 일반 PC에서도 돌릴 수 있다.</li></ul>
+  </li>
   <li>크기: 모델의 크기(파라미터 수)에 따라 파일 용량이 매우 크다.
     <ul>
       <li>예: 7B(70억 파라미터) 모델은 약 4GB~14GB</li>
