@@ -39,8 +39,9 @@ const posts = computed(() => {
   <div id="BoardComponent">
     <div v-for="(post, index) in posts" :key="post.path">
       <NuxtLink class="boardItem" :to="'/post/' + post.path">
+        <p>${String(index + 1).padStart(posts.length.toString().length, '0')}</p>
         <h2 class="title">
-          {{ `${String(index + 1).padStart(posts.length.toString().length, '0')} ${post.title}` }}
+          {{ `${post.title}` }}
         </h2>
         <p class="date">{{ post.date }}</p>
         <p class="category">{{ `/${post.category}` }}</p>
