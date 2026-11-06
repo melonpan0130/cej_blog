@@ -127,3 +127,45 @@ a {
     margin: 0 auto;
   }
 }
+
+/* Post Styles */
+* {
+  word-break: keep-all;
+}
+b {
+  font-weight: bolder;
+}
+hr {
+  height: 8px;
+  margin: 20px 0;
+  background: #00bd7e;
+  opacity: 0.1;
+}
+.think {
+  color: gray;
+  font-style: italic;
+  text-decoration: line-through;
+}
+.term {
+  border: solid 5px rgba(0, 189, 126, 0.2);
+  font-size: 0.9em;
+  margin: 1em;
+  opacity: 0.5;
+}
+.highlight {
+    background: rgba(0, 189, 126, 0.2);
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table th,
+table td {
+    border: solid 2px rgba(0, 189, 126, 0.2);
+    padding: 0.1em 0.5em;
+}
+table tr:nth-child(1) td,
+table tr:nth-child(1) th {
+    text-align: center;
+    background-color: rgba(0, 189, 126, 0.2);
+}
